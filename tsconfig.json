@@ -14,7 +14,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "types": ["vite/client", "@vitejs/plugin-react", "sass"],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@apis": ["./src/apis"],
+      "@components/*": ["./src/components/*"],
+      "@constants": ["./src/config/constants"],
+      "@utils/*": ["./src/utils/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@styles/*": ["./src/styles/*"]
+    },
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
