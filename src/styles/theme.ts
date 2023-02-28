@@ -3,7 +3,7 @@ const colors = {
   secondary: '#ff0080',
   text: '#333',
   background: '#fff',
-}
+};
 export const theme = {
   colors,
-}
+};

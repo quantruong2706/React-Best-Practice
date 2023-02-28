@@ -1,21 +1,34 @@
+/* eslint-disable import/default */
+/* eslint-disable import/no-extraneous-dependencies */
 /// <reference types="node" />
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import path from 'path'
-import sass from 'sass'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import eslintPlugin from 'vite-plugin-eslint';
+import path from 'path';
+import sass from 'sass';
 
-// https://vitejs.dev/config/
+interface EslintType {
+  cache: boolean;
+  fix: boolean;
+}
+
+const configLint: EslintType = {
+  cache: false,
+  fix: true,
+};
+
 export default defineConfig({
   plugins: [
     react(),
+    eslintPlugin(configLint),
     {
       name: 'scss',
-      transform: (code, id) => {
+      transform: (code: string, id: string) => {
         if (/\.scss$/.test(id)) {
-          const result = sass.renderSync({ data: code })
+          const result = sass.renderSync({ data: code });
           return {
             code: result.css.toString(),
-          }
+          };
         }
       },
     },
@@ -30,4 +43,4 @@ export default defineConfig({
       '@styles': path.resolve(__dirname, './src/styles'),
     },
   },
-})
+});

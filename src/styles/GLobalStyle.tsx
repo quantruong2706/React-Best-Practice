@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   /* Box sizing rules */
@@ -109,6 +109,6 @@ const GlobalStyle = createGlobalStyle`
   .button:hover {
     background-color: #0062cc;
   }
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;
